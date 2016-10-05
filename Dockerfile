@@ -18,6 +18,9 @@ RUN apt-get update -qq && \
     libatlas-base-dev \
     gfortran
 
+conda remove libgfortran
+conda install libgcc --force
+
 RUN pip install CVXOPT
 
 # ADD requirements.txt requirements.txt
