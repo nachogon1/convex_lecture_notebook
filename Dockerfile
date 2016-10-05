@@ -10,13 +10,13 @@ USER main
 
 RUN find $HOME/notebooks -name '*.ipynb' -exec jupyter trust {} \;
 
-ADD requirements.txt requirements.txt
-ADD handle-requirements.py handle-requirements.py
-RUN python handle-requirements.py
-
 USER root
 RUN apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran
 RUN pip install CVXOPT
+
+# ADD requirements.txt requirements.txt
+# ADD handle-requirements.py handle-requirements.py
+# RUN python handle-requirements.py
 
 USER main
 WORKDIR $HOME/notebooks
