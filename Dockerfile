@@ -11,7 +11,12 @@ USER main
 RUN find $HOME/notebooks -name '*.ipynb' -exec jupyter trust {} \;
 
 USER root
-RUN apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran
+RUN apt-get update -qq && \
+    apt-get install -y -t unstable --no-install-recommends \
+    libblas-dev \
+    liblapack-dev \
+    libatlas-base-dev \
+    gfortran \
 RUN pip install CVXOPT
 
 # ADD requirements.txt requirements.txt
