@@ -16,7 +16,8 @@ RUN apt-get update -qq && \
     libblas-dev \
     liblapack-dev \
     libatlas-base-dev \
-    gfortran \
+    gfortran
+
 RUN pip install CVXOPT
 
 # ADD requirements.txt requirements.txt
