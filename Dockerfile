@@ -10,7 +10,7 @@ RUN conda remove libgfortran
 RUN conda install libgcc --force
 
 RUN pip install CVXOPT
-RUN pip install mosek
+#RUN pip install mosek
 
 USER main
 
